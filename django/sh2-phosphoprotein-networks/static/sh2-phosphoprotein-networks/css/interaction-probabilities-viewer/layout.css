@@ -1,0 +1,180 @@
+
+#three-columns-panel-wrapper {
+  position: relative;
+  min-height: 500px;
+  text-align: center;
+  line-height: 0;
+}
+
+#three-columns-panel {
+  display: inline-block;
+  line-height: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+#three-columns-panel > * {
+  display: inline-block;
+  line-height: normal;
+  vertical-align: top;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.input-panel input {
+  width: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+
+#graph-panel {
+  position: relative;
+}
+
+#graph-div {
+  z-index: 2000;
+  background-color: transparent;
+}
+
+#overall-box {
+  font-weight: bold;
+}
+
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+
+ul.ui-autocomplete {
+  overflow-x: hidden;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.app-root {
+  text-align: center;
+  font-size: 0px;
+}
+
+.app-content {
+  display: inline-block;
+  text-align: initial;
+}
+
+#overall-box table {
+  border-collapse: collapse;
+}
+
+#three-columns-panel .column-label {
+  font-weight: bold;
+}
+
+#graph-panel {
+  width: 300px;
+}
+
+.input-panel .sh2-domain textarea{
+  width: 16ch;
+}
+
+.input-panel .phospho-site textarea {
+  width: 13ch;
+}
+
+.sequence {
+  display: inline-block;
+}
+
+/* -------------------------------------------------------------------------- */
+
+#results-box {
+  position: relative;
+}
+
+#no-edges {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+}
+
+/* -------------------------------------------------------------------------- */
+
+#input-blocker {
+  width: 100vw;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* -------------------------------------------------------------------------- */
+
+#calculate-or-cancel {
+  vertical-align: top;
+}
+
+#calculate-or-cancel .progressbar {
+  position: relative;
+}
+
+#time-remaining {
+  position: absolute;
+  top: 110%;
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------------------------- */
+/* MARGIN */
+
+.control-panel > * {
+  margin: 5px;
+}
+
+.input-panel {
+  margin-top: 50px;
+}
+
+.input-panel > div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.input-panel .sequence-wrapper:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* PADDING */
+
+.sequence {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.input-panel input {
+  padding: 0.5ex;
+}
+
+#results-box {
+  padding: 0px 10px;
+}
+
+#overall {
+  padding: 0px 10px;
+}
+
+#three-columns-panel {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* ------------------------------------------------- */
+/* Hand-tuned settings */
+
+.sh2-domain{
+  padding-left: 15px;
+  padding-right: 5px;
+}
+
+.phospho-site{
+  padding-left: 5px;
+  padding-right: 15px;
+}

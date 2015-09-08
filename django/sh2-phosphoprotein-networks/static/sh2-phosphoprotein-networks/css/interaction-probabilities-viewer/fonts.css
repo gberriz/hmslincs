@@ -1,0 +1,28 @@
+ul.ui-autocomplete,
+.control-panel .clickable,
+.input-panel input,
+.input-panel textarea,
+.app-content {
+  font-family: inconsolata, consolas, monaco, monospace;
+}
+
+.app-content {
+  font-size: 13px;
+}
+
+.input-panel textarea {
+  font-size: 16px;
+}
+
+ul.ui-autocomplete {
+  font-size: 16px;
+}
+
+#overall {
+  font-size: 20px;
+}
+
+#time-remaining {
+  font-style: italic;
+  font-size: smaller;
+}

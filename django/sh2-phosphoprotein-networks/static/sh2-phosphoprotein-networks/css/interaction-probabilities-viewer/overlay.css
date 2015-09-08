@@ -1,0 +1,13 @@
+.overlay-holder {
+    padding: 0px;
+    border-width: 0px;
+
+    display: inline-block;
+    position: relative;
+}
+
+.overlay-holder > .overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

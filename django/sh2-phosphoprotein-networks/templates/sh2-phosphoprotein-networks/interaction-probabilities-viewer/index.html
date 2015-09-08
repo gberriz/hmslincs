@@ -1,0 +1,290 @@
+{% extends "sh2-phosphoprotein-networks/base.html" %}
+
+{% block head_extra %}
+
+    <link href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/override.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/global.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/style.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Inconsolata">
+
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/base.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/fonts.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/centering.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/overlay.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/layout.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/nonlayout.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/closebox.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/popup.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/clickable.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/progressbar.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}sh2-phosphoprotein-networks/css/interaction-probabilities-viewer/utils.css" />
+
+{% endblock %}
+
+{% block title %}Interaction probabilities viewer - {{ block.super }}{% endblock %}
+
+{% block contentclass %}fullwidth{% endblock %}
+
+{% block body %}
+
+    </div> <!-- close #content -->
+    <br style="clear:left">
+  </div> <!-- close #pagebody -->
+
+<div id="override">
+<div class="override-content">
+
+    <div class="title-and-authors">
+        <h1><a href="../">An MSM model of SH2-phosphoprotein networks</a></h1>
+        <p>Mohammed AlQuraishi<sup>1,2*</sup>, Grigoriy Koytiger<sup>1*</sup>, Anne Jenney<sup>1</sup>, Gavin MacBeath<sup>2</sup>, and Peter K. Sorger<sup>1</sup></p>
+        <p><sup>1</sup>HMS Laboratory of Systems Pharmacology; <sup>2</sup>HMS Department of Systems Biology</p>
+        <p>doi:<a href="http://dx.doi.org/10.1038/ng.3138">10.1038/ng.3138</a></p>
+    </div> <!-- <div class="title-and-authors"> -->
+
+    <h2>Interaction probabilities viewer</h2>
+
+    <p>The MSM framework predicts probabilities of interactions between proteins
+    containing SH2 domains and phosphorylated tyrosine sites, including ones
+    containing multiple domains and multiple phosphosites. This website enables
+    interactive exploration of these MSM features. Users can compute
+    probabilities of interaction between known SH2- and phospho-proteins, mutant
+    versions of these proteins, or entirely new combinations of user-specified
+    SH2 domains and phosphosites. The overall protein-level probability of
+    interaction is shown, along with the individual contributions of every
+    interacting domain-phosphopeptide pair.</p>
+
+<div class="global">
+
+<button class="show info"><i>i</i></button>
+<button class="hide info">&#9167;</button>
+
+</div> <!-- <div class="global"> -->
+
+<div class="instructions">
+  <div>
+    <h3>Usage</h3>
+
+    <ul>
+
+      <li></li>
+
+      <li>
+
+        <ul>
+
+          <li></li>
+        </ul>
+      </li>
+
+      <p></p>
+
+      <li></li>
+
+    </ul>
+  </div>
+</div> <!-- <div class="instructions"> -->
+
+
+
+
+
+      <div id="app-root" class="app-root">
+        <div id="app-content" class="app-content hidden">
+          <div id="control-panel-wrapper">
+            <div id="control-panel" class="control-panel"><!--
+
+              --><button id="example" class="clickable ui-input"><span class="label">Example input</span></button><!--
+              --><br/><!--
+
+              --><div id="calculate-or-cancel" class="overlay-holder">
+                <button id="calculate" class="clickable ui-input">
+                  <span class="label">Calculate</span>
+                </button>
+
+                <div id="progress-indicator" class="overlay">
+                  <div id="progressbar" class="progressbar clickable centering-context ui-input keep-enabled">
+                    <div class="value"></div>
+                    <span class="label centered-content">Cancel</span>
+                  </div>
+                  <div id="time-remaining"></div>
+                </div>
+
+              </div><!--
+
+              --><button id="reset" class="clickable ui-input keep-enabled"><span class="label">Reset</span></button><!--
+            --></div>
+
+          </div>
+
+
+
+
+
+
+          <div id="three-columns-panel-wrapper">
+            <div id="three-columns-panel" class="overlay-holder"><!--
+
+              --><div id="input-blocker" class="overlay"></div><!--
+
+              --><div id="sh2-domains-panel" class="input-panel">
+
+                <div class="column-label centering-context">&nbsp;<span class="centered-content">SH2 domains</span></div>
+                <div class="pull-down ui-widget" title="enter gene name">
+                  <input id="sh2-protein" class="ui-input"/>
+                </div>
+
+                <div id="selected-sh2-domains" class="sequences-div">
+                  <div class="sequence sh2-domain hidden">
+                    <div class="closebox"></div>
+                    <textarea rows="7"></textarea>
+                  </div>
+                </div>
+                <div>
+                  <button class="add ui-input" title="add a blank slot">+</button>
+                  <button class="nixall ui-input" title="remove all">&times;</button>
+                </div>
+              </div><!--
+
+
+              --><div id="graph-panel">
+                <div id="results-box">
+                  <div id="overall-box">
+                    <table>
+                      <tr>
+                        <td>
+                          <div>overall probability:</div>
+                        </td>
+                        <td id="na">
+                          <div>(na)</div>
+                        </td>
+                        <td>
+                          <div>
+                            <div id="overall"></div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+
+                  <div id="no-edges">
+                    <span>(no significant edges)</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div id="graph-div"></div>
+                </div>
+
+              </div><!--
+
+
+              --><div id="phospho-sites-panel" class="input-panel">
+
+                <div class="column-label centering-context">&nbsp;<span class="centered-content">phosphorylation sites</span></div>
+                <div class="pull-down ui-widget" title="enter gene name">
+                  <input id="phospho-protein" class="ui-input">
+                </div>
+
+                <div id="selected-phospho-sites" class="sequences-div">
+                  <div class="sequence phospho-site hidden">
+                    <div class="closebox"></div>
+                    <textarea rows="1"></textarea>
+                  </div>
+                </div>
+
+                <div>
+                  <button class="add ui-input" title="add a blank slot">+</button>
+                  <button class="nixall ui-input" title="remove all">&times;</button>
+                </div>
+
+
+              </div><!--
+
+            --></div>
+          </div>
+
+          <p class="powered-by"
+             style="margin-top: 2em;
+                    clear: left;
+                    float: right;
+                    font-style: italic;">Powered by
+            <a href="http://js.cytoscape.org/">cytoscape.js</a></p>
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+<script>
+    window.__STATIC_URL__ = '{{ STATIC_URL }}sh2-phosphoprotein-networks/';
+    require( [ 'spn/interaction-probabilities-viewer/app' ], function ( app ) { app() } );
+</script>
+
+
+</div> <!-- <div class="override-content"> -->
+
+</div> <!-- <div id="override"> -->
+
+<div class="downloads">
+<div>
+
+<!-- <h2 id="downloads">Relevant signatures</h2> -->
+<!-- <table> -->
+<!-- <tbody> -->
+<!-- <tr> -->
+<!-- <td style="white-space: nowrap;">Signature</td> -->
+<!-- <td>Average variable importance in the projection (VIP) scores from the PLSR models analyzing the covariation of molecular signals with cell viability and apoptosis fraction in BRAF(V600E/D) melanoma cell lines</td> -->
+<!-- <td style="white-space: nowrap;"><a href="/db/datasets/20231/">Details</a></td> -->
+<!-- <td style="white-space: nowrap;"><a href="/db/datasets/20231/results?output_type=.xls">Download (.xls)</a></td> -->
+<!-- </tr> -->
+<!-- </tbody> -->
+<!-- </table> -->
+<!-- </div> -->
+<!-- </div> -->
+
+  <script>
+
+require( [ 'jquery' ], function ( jquery ) {
+
+    jquery( document ).ready(
+
+        function ( $ ) {
+            var _
+            ,   $info = $( '.instructions > div' )
+            ,   up = -$info.outerHeight()
+            ,   down = 0
+            ,   $show = $( '.global button.show.info' )
+            ,   $hide = $( '.global button.hide.info' )
+            ;
+
+            function showhide ( margin_top, on, off ) {
+                $info.animate( { 'margin-top': margin_top }, 50,
+                               function () {
+                                   off.css( 'display', 'none' );
+                                   on.css( 'display', 'inline-block' );
+                               } );
+            }
+
+            showhide( up, $show, $hide );
+
+            $show.on( 'click', function () { showhide( down, $hide, $show ); } )
+            $hide.on( 'click', function () { showhide( up, $show, $hide ); } )
+
+        } );
+
+    } );
+
+  </script>
+
+  <div class="empty-div"> <!-- match the </div> for #pagebody -->
+    <div class="empty-div"> <!-- match the </div> for #content -->
+
+
+{% endblock %}

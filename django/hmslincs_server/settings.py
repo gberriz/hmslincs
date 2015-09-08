@@ -231,6 +231,7 @@ INSTALLED_APPS = (
     'single_cell_dynamics',
     'adaptive_drug_resistance',
     'trail_threshold_variability',
+    'sh2-phosphoprotein-networks',
     # # 'south', #for schema migrations
     # # 'fts', # for full text search
 )

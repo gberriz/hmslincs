@@ -89,6 +89,10 @@ urlpatterns = patterns('',
      'django.views.generic.simple.direct_to_template',
      {'template': 'adaptive_drug_resistance/vips/index.html'}),
 
+    (r'^explore/sh2-phosphoprotein-networks/interaction-probabilities-viewer/$',
+     'django.views.generic.simple.direct_to_template',
+     {'template': 'sh2-phosphoprotein-networks/interaction-probabilities-viewer/index.html'}),
+
     # breast_cancer_signaling and single_cell_dynamics are currently served by
     # apache directly from STATIC_ROOT, so no url patterns are listed here.
 )

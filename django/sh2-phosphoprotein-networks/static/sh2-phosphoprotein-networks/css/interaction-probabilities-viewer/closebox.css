@@ -1,0 +1,27 @@
+.input-panel .sequence {
+  position:relative;
+}
+
+.sequence .closebox {
+  height: 10px;
+  width: 9px;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJAgMAAACd/+6DAAAADFBMVEX///9YWFhWVlZXV1dNGxiOAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQffARcWCh1eUBldAAAAH0lEQVQI12NggAIOHgYGJgUgw4GBgdmAgYGHBSbDAAANGwC6kRjqhQAAAABJRU5ErkJggg==');
+  position: absolute;
+
+  top: 50%;
+  margin-top: -5px;
+}
+
+.sh2-domain .closebox {
+  left: 2px;
+}
+
+.phospho-site .closebox {
+  right: 2px;
+}
+
+.input-panel textarea{
+  resize:none;
+  /* width:100%; */
+  /* height:100%; */
+}

@@ -1,0 +1,97 @@
+.clickable {
+    vertical-align: top;
+}
+
+button.clickable {
+    line-height: 0px;
+}
+
+button.clickable > * {
+    line-height: initial;
+}
+
+.clickable * {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+.clickable {
+  cursor: default;
+  text-decoration: none;
+  background: #eee;
+  border-style: solid;
+  border-color: #ddd;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-border-radius: 2;
+  border-radius: 2px;
+
+  color: #111;
+}
+
+.clickable {
+  overflow: hidden;
+}
+
+button.clickable {
+  background: #eee;
+}
+
+button.clickable:hover:not([disabled]) {
+  background-image:-webkit-linear-gradient(top, #eee, #ddd);
+  background-image:-moz-linear-gradient(top, #eee, #ddd);
+  background-image:-ms-linear-gradient(top, #eee, #ddd);
+  background-image:-o-linear-gradient(top, #eee, #ddd);
+  background-image:linear-gradient(to bottom, #eee, #ddd);
+}
+
+.progressbar .value,
+button.clickable:active:not([disabled]) {
+  background-image:-webkit-linear-gradient(top, #ddd, #ccc);
+  background-image:-moz-linear-gradient(top, #ddd, #ccc);
+  background-image:-ms-linear-gradient(top, #ddd, #ccc);
+  background-image:-o-linear-gradient(top, #ddd, #ccc);
+  background-image:linear-gradient(to bottom, #ddd, #ccc);
+}
+
+button.clickable:active:not([disabled]) {
+  border-color: #ccc;
+}
+
+.clickable:disabled {
+  color: #aaa;
+}
+
+.clickable:focus {
+  outline: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.clickable {
+  border-width: 1px;
+}
+
+.clickable .label {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.clickable {
+  border-style: solid;
+}
+
+.clickable::-moz-focus-inner {
+  border-color: rgba(0, 0, 0, 0);
+}

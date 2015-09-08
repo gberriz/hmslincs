@@ -1,0 +1,32 @@
+#input-blocker {
+  z-index: 1000;
+  background-color: white;
+  opacity: 0.5;
+}
+
+/* -------------------------------------------------------------------------- */
+
+#time-remaining {
+  z-index: 2000;
+  color: #888;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.input-panel input {
+  outline: 1px solid gray;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.sequence {
+  outline: 1px solid gray;
+}
+
+/* -------------------------------------------------------------------------- */
+
+.ui-widget-content .ui-state-focus {
+  border-color: rgba(0, 0, 0, 0);
+  background: #999;
+  color: #eee;
+}

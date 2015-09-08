@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block requirejs %}
+    <script>
+     require.config({
+         paths: {
+             spn: 'sh2-phosphoprotein-networks/js',
+         },
+    });
+    </script>
+{% endblock %}

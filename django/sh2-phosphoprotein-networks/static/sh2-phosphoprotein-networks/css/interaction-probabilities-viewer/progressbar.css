@@ -1,0 +1,32 @@
+.progressbar {
+  background: #fafafa;
+}
+
+.progressbar .value {
+  display: block;
+  height: 100%;
+}
+
+.progressbar {
+  padding: 0px !important;
+}
+
+.progressbar .value {
+  margin: 0px !important;
+  padding: 0px !important;
+  border-width: 0px !important;
+}
+
+.progressbar .label {
+  display: inline;
+}
+
+/* same as for button.clickable:active:not([disabled]) */
+.progressbar:active,
+.progressbar .value {
+  background-image:-webkit-linear-gradient(top, #ddd, #ccc);
+  background-image:-moz-linear-gradient(top, #ddd, #ccc);
+  background-image:-ms-linear-gradient(top, #ddd, #ccc);
+  background-image:-o-linear-gradient(top, #ddd, #ccc);
+  background-image:linear-gradient(to bottom, #ddd, #ccc);
+}
